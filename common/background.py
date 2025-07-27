@@ -16,7 +16,7 @@ class Background:
 
     def draw(self, ctx):
         """Draw ourself."""
-        ctx.image(asset_path("countdown") + self.image, -120, -120, 240, 240)
+        # ctx.image(asset_path("countdown") + self.image, -120, -120, 240, 240)
 
         ctx.rgba(*self.colour)
         ctx.rectangle(-120, -120, 240, 240)
