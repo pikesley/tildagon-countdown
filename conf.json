@@ -1,0 +1,79 @@
+{
+  "emf-seconds": 837518400,
+  "colours": {
+    "pallette": {
+      "pale-green": [
+        175,
+        201,
+        68
+      ],
+      "mid-green": [
+        82,
+        131,
+        41
+      ],
+      "dark-green": [
+        33,
+        48,
+        24
+      ],
+      "yellow": [
+        249,
+        226,
+        0
+      ],
+      "orange": [
+        246,
+        127,
+        2
+      ],
+      "pink": [
+        245,
+        80,
+        137
+      ],
+      "blue": [
+        46,
+        173,
+        217
+      ]
+    },
+    "screen": {
+      "background": "mid-green",
+      "text": "yellow"
+    },
+    "leds": {
+      "background": "mid-green",
+      "ticker": "pale-green"
+    }
+  },
+  "text": {
+    "sizes": {
+      "small": 30,
+      "medium": 40,
+      "large": 50
+    }
+  },
+  "units": [
+    {
+      "name": "seconds"
+    },
+    {
+      "name": "minutes",
+      "divisor": 60
+    },
+    {
+      "name": "hours",
+      "divisor": 3600
+    },
+    {
+      "name": "days",
+      "divisor": 86400
+    },
+    {
+      "name": "weeks",
+      "divisor": 604800,
+      "rounding": 1
+    }
+  ]
+}

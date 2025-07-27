@@ -1,0 +1,14 @@
+[app]
+name = "EMF 2026 Countdown"
+category = "Badge"
+wifi_preference = true
+
+[entry]
+class = "Countdown"
+
+[metadata]
+author = "pikesley"
+license = "MIT"
+url = "https://www.github.com/pikesley/tildagon-countdown"
+description = "Countdown to EMF 2026. Up and Down buttons to change the units."
+version = "0.0.1"

@@ -1,0 +1,5 @@
+{
+    "name": "EMF 2026 Countdown",
+    "path": "apps.countdown.app",
+    "callable": "Countdown"
+  }
