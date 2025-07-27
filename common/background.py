@@ -12,7 +12,7 @@ class Background:
     ):
         """Construct."""
         self.colour = list(colour) + [opacity]
-        self.image = image
+        # self.image = image
 
     def draw(self, ctx):
         """Draw ourself."""
