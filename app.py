@@ -130,7 +130,7 @@ class Countdown(app.App):
 
     def light_leds(self):
         """Light lights."""
-        for index in range(12):
+        for index in range(18):
             tildagonos.leds[index + 1] = self.led_colours["background"]
 
         tildagonos.leds[12 - (self.interval % 12)] = self.led_colours["ticker"]
