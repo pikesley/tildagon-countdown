@@ -7,6 +7,6 @@ conf = json.loads(
     gzip.decompress(open(ASSET_PATH + "conf.json.gz", "rb").read()).decode()  # noqa: PTH123, SIM115
 )
 
-# font = json.loads(
-#     gzip.decompress(open(ASSET_PATH + "font.json.gz", "rb").read()).decode()  # noqa: PTH123, SIM115
-# )
+font = json.loads(
+    gzip.decompress(open(ASSET_PATH + "font.json.gz", "rb").read()).decode()  # noqa: PTH123, SIM115
+)

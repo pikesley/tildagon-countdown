@@ -43,17 +43,19 @@
     },
     "screen": {
       "background": "mid-green",
+      "highlight": "pink",
       "text": "yellow"
     }
   },
   "emf-seconds": 837518400,
   "text": {
     "sizes": {
-      "large": 50,
-      "medium": 40,
-      "small": 30
+      "large": 4,
+      "medium": 3,
+      "small": 1.8
     }
   },
+  "twitch-amount": 0.01,
   "units": [
     {
       "name": "seconds"

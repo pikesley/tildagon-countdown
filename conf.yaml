@@ -1,4 +1,5 @@
 emf-seconds: 837518400  # seconds past 2000-01-01 because why not
+twitch-amount: 0.01
 
 colours:
   pallette:
@@ -13,15 +14,16 @@ colours:
   screen:
     background: mid-green
     text: yellow
+    highlight: pink
   leds:
     background: mid-green
     ticker: pale-green
 
 text:
   sizes:
-    small: 30
-    medium: 40
-    large: 50
+    small: 1.8
+    medium: 3
+    large: 4
 
 units:
   - name: seconds

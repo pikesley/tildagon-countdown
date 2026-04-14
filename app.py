@@ -13,6 +13,7 @@ import app
 from .common.background import Background
 from .lib.conf import conf
 from .lib.tools import decimalise_colour, get_interval, led_correct
+from .lib.word import Word
 
 
 class Countdown(app.App):
@@ -56,17 +57,16 @@ class Countdown(app.App):
         self.overlays.append(
             Background(colour=self.display_colours["background"], opacity=0.85)
         )
-        self.draw_overlays(ctx)
 
         ctx.rotate(-self.rotation_offset)
-        self.write_text(ctx)
+        self.write_text()
 
-    def write_text(self, ctx):
+
+
+        self.draw_overlays(ctx)
+
+    def write_text(self):
         """Write the text."""
-        ctx.rgb(*self.display_colours["text"])
-        ctx.text_align = ctx.CENTER
-        ctx.text_baseline = ctx.MIDDLE
-
         our_interval = get_interval(self.interval, self.unit)
 
         verb = "are"
@@ -77,16 +77,23 @@ class Countdown(app.App):
             unit_name = unit_name[:-1]
 
         strings = (
-            (f"There {verb}", "small", -60),
+            (f"There {verb}", "small", -50),
             (str(our_interval), "large", -22),
-            (unit_name, "medium", 14),
-            ("until EMF 2026", "small", 50),
+            (unit_name, "medium", 10),
+            ("until EMF 2026", "small", 40),
         )
 
         for item in strings:
-            ctx.font_size = self.conf["text"]["sizes"][item[1]]
-            ctx.move_to(0, item[2])
-            ctx.text(item[0])
+            word = Word(
+                {
+                    "text": item[0],
+                    "scale": self.conf["text"]["sizes"][item[1]],
+                    "colour": self.display_colours["text"],
+                    "offset": item[2],
+                    "letter-opacity": 0.9,
+                }
+            )
+            word.letters(self)
 
     def scan_buttons(self):
         """Buttons."""
