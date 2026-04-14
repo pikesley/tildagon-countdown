@@ -11,7 +11,7 @@ from tildagonos import tildagonos
 import app
 
 from .common.background import Background
-from .common.conf import conf
+from .lib.conf import conf
 from .lib.tools import decimalise_colour, get_interval, led_correct
 
 
@@ -24,7 +24,7 @@ class Countdown(app.App):
         ntptime.settime()
 
         self.button_states = Buttons(self)
-        self.conf = conf(__file__)
+        self.conf = conf
 
         self.pallette = self.conf["colours"]["pallette"]
         self.screen_colours = self.conf["colours"]["screen"]

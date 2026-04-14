@@ -1,4 +1,4 @@
-from ..common.asset_path import asset_path
+from ..lib.asset_path import ASSET_PATH
 
 
 class Background:
@@ -16,7 +16,7 @@ class Background:
 
     def draw(self, ctx):
         """Draw ourself."""
-        ctx.image(asset_path("countdown") + self.image, -120, -120, 240, 240)
+        ctx.image(ASSET_PATH + self.image, -120, -120, 240, 240)
 
         ctx.rgba(*self.colour)
         ctx.rectangle(-120, -120, 240, 240)

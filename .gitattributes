@@ -1,1 +1,9 @@
-badge.jpg export-ignore
+/Dockerfile export-ignore
+/LICENSE.md export-ignore
+/Makefile export-ignore
+/README.md export-ignore
+/conf.yaml export-ignore
+/includes export-ignore
+/requirements.txt export-ignore
+/ruff.toml export-ignore
+/scripts export-ignore
