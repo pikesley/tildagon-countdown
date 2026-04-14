@@ -3,6 +3,7 @@
 /Makefile export-ignore
 /README.md export-ignore
 /conf.yaml export-ignore
+/conf.json export-ignore
 /includes export-ignore
 /requirements.txt export-ignore
 /ruff.toml export-ignore

@@ -1,57 +1,57 @@
 {
-  "emf-seconds": 837518400,
   "colours": {
+    "leds": {
+      "background": "mid-green",
+      "ticker": "pale-green"
+    },
     "pallette": {
-      "pale-green": [
-        175,
-        201,
-        68
-      ],
-      "mid-green": [
-        82,
-        131,
-        41
+      "blue": [
+        46,
+        173,
+        217
       ],
       "dark-green": [
         33,
         48,
         24
       ],
-      "yellow": [
-        249,
-        226,
-        0
+      "mid-green": [
+        82,
+        131,
+        41
       ],
       "orange": [
         246,
         127,
         2
       ],
+      "pale-green": [
+        175,
+        201,
+        68
+      ],
       "pink": [
         245,
         80,
         137
       ],
-      "blue": [
-        46,
-        173,
-        217
+      "yellow": [
+        249,
+        226,
+        0
       ]
     },
     "screen": {
       "background": "mid-green",
       "text": "yellow"
-    },
-    "leds": {
-      "background": "mid-green",
-      "ticker": "pale-green"
     }
   },
+  "emf-seconds": 837518400,
   "text": {
     "sizes": {
-      "small": 30,
+      "large": 50,
       "medium": 40,
-      "large": 50
+      "small": 30
     }
   },
   "units": [
@@ -59,20 +59,20 @@
       "name": "seconds"
     },
     {
-      "name": "minutes",
-      "divisor": 60
+      "divisor": 60,
+      "name": "minutes"
     },
     {
-      "name": "hours",
-      "divisor": 3600
+      "divisor": 3600,
+      "name": "hours"
     },
     {
-      "name": "days",
-      "divisor": 86400
+      "divisor": 86400,
+      "name": "days"
     },
     {
-      "name": "weeks",
       "divisor": 604800,
+      "name": "weeks",
       "rounding": 1
     }
   ]
