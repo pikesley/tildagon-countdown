@@ -2,18 +2,37 @@ extend-exclude = []
 line-length = 88
 target-version = "py311"
 lint.ignore = [
-  "D100", # modules don't need docstrings
-  "D104", # disable requirement for package docstrings
-  "D203", # a blank line is ugly
-  "D213", # multi line summaries go on the first line
-  "FIX", # Don't worry about FIXMEs etc.
-  "S101", # alerting on assert being used is mad when unit tests exist
-  "S311", # I DO NOT CARE ABOUT PSEUDO-RANDOM NUMBERS
-  "PLR2004", # I WILL USE WHATEVER GODDAMN MAGIC COMPARISON VALUES I WANT IN MY TESTS FUCK OFF RUFF
-  "RUF005", # no good for micropython
-  "TID252", # it's all relative imports down here
-  "D401", # the first line of my docstring will be in any mood I like
-  "D400"  # we'll end with a question mark if we want to
+  "B905", # zip-without-explicit-strict
+  "C901", # complex-structure
+  "D100", # undocumented-public-module
+  "D104", # undocumented-public-nested-class
+  "D203", # incorrect-blank-line-before-class
+  "D213", # multi-line-summary-second-line
+  "D400", # missing-trailing-period
+  "D401", # non-imperative-mood
+  "E722", # bare-except
+  "F401", # unused-import
+  "FBT002", # boolean-default-value-positional-argument
+  "FBT003", # boolean-positional-value-in-call
+  "FIX", # line-contains-fixme
+  "PERF401", # manual-list-comprehension
+  "PLC0206", # dict-index-missing-items (
+  "PLC0415", # import-outside-top-level (
+  "PLR0913", # too-many-arguments
+  "PLR2004", # magic-value-comparison
+  "PTH109", # os-getcwd
+  "PTH123", # py-path
+  "PTH208", # os-listdir
+  "RET503", # implicit-return
+  "RUF005", # collection-literal-concatenation
+  "S101", # assert
+  "S311", # suspicious-non-cryptographic-random-usage
+  "S314", # suspicious-telnet-usage
+  "S605", # start-process-with-a-shell (
+  "SIM105", # suppressible-exception
+  "SIM115", # open-file-with-context-handler
+  "TID252", # relative-imports
+  "TRY300", # try-consider-else
 ]
 lint.select = [
   "A", # flake8-builtins
@@ -55,13 +74,12 @@ lint.select = [
   "TRY", # tryceratops
   "UP", # pyupgrade
   "W", # pycodestyle warnings
-  "YTT" # flake8-2020
+  "YTT"
+  # flake8-2020
 ]
 
 [lint.flake8-builtins]
-builtins-ignorelist = [
-  "id"
-]
+builtins-ignorelist = ["id"]
 
 [lint.mccabe]
 max-complexity = 10

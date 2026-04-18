@@ -1,7 +1,8 @@
 from math import cos, radians, sin
 from random import randint, random
 
-from .conf import conf, font
+from ..base.conf import conf
+from ..countdown.font import font
 
 
 class Character:

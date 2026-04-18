@@ -10,10 +10,10 @@ from tildagonos import tildagonos
 
 import app
 
-from .common.background import Background
-from .lib.conf import conf
-from .lib.tools import decimalise_colour, get_interval, led_correct
-from .lib.word import Word
+from .base.conf import conf
+from .countdown.background import Background
+from .countdown.tools import decimalise_colour, get_interval, led_correct
+from .countdown.word import Word
 
 
 class Countdown(app.App):
@@ -46,6 +46,7 @@ class Countdown(app.App):
         self.rotation_offset = (atan2(acc[1], acc[0])) * weighting
 
         now = time.time()
+
         self.interval = self.conf["emf-seconds"] - now
         self.unit = self.units[self.unit_index]
 
@@ -60,8 +61,6 @@ class Countdown(app.App):
 
         ctx.rotate(-self.rotation_offset)
         self.write_text()
-
-
 
         self.draw_overlays(ctx)
 
@@ -140,7 +139,7 @@ class Countdown(app.App):
         for index in range(18):
             tildagonos.leds[index + 1] = self.led_colours["background"]
 
-        tildagonos.leds[12 - (self.interval % 12)] = self.led_colours["ticker"]
+        tildagonos.leds[int(12 - (self.interval % 12))] = self.led_colours["ticker"]
 
         tildagonos.leds.write()
 

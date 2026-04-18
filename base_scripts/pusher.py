@@ -120,5 +120,3 @@ if __name__ == "__main__":
     app = Path(__file__).parent.parent.stem
     pm = PushManager(app, includes=includes)
     pm.push()
-
-# TODO generate release-exlcudes from "includes"

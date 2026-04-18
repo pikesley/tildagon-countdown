@@ -1,9 +1,9 @@
 APP = $(shell basename $$(pwd))
 
-all: format clean
+all: format test clean
 
 push: convert-conf
-	python scripts/pusher.py
+	python base_scripts/pusher.py
 
 mkdir:
 	-python -m mpremote mkdir apps/${APP}
@@ -16,20 +16,43 @@ deploy: mkdir push connect
 uninstall:
 	python -m mpremote fs rm -r :/apps/${APP}
 
-convert-conf:
-	@python scripts/conf_yaml_to_json.py
+excludes:
+	python base_scripts/excluder.py
+
+convert-conf: fix-asset-path
+	python base_scripts/conf_yaml_to_json.py
+
+fix-asset-path:
+	PYTHONPATH=. python templates/asset_path_fixer.py
 
 test-release:
-	bash scripts/test-release.sh
+	bash base_scripts/build-release.sh deploy
+
+simulate-release: clean-simulator
+	bash base_scripts/build-release.sh simulate
+
+release:
+	python base_scripts/releaser.py
+
+scrub-badge:
+	-python -m mpremote fs rm -r apps/
+	python -m mpremote mkdir :/apps
+
+scrub-tags:
+	bash base_scripts/scrub-tags.sh
+
+simulate: clean-simulator convert-conf
+	bash base_scripts/simulate.sh
+
+clean-simulator:
+	bash base_scripts/clean-simulator.sh
+
+skellify:
+	bash base_scripts/skellify.sh
 
 format:
 	ruff format
 	ruff check --fix
-
-clean:
-	@find . -depth -name __pycache__ -exec rm -fr {} \;
-	@find . -depth -name .ruff_cache -exec rm -fr {} \;
-	@find . -depth -name .pytest_cache -exec rm -fr {} \;
 
 test:
 	python -m pytest \
@@ -39,9 +62,10 @@ test:
 		--exitfirst \
 		--last-failed
 
-install: guard-LIBRARY
-	mkdir -p pikesley
-	rsync --archive --verbose --exclude tests ../pikesley/${LIBRARY} pikesley/
+clean:
+	@find . -depth -name __pycache__ -exec rm -fr {} \;
+	@find . -depth -name .ruff_cache -exec rm -fr {} \;
+	@find . -depth -name .pytest_cache -exec rm -fr {} \;
 
 build:
 	docker build \
@@ -53,17 +77,9 @@ run:
 		--name ${APP} \
 		--hostname ${APP} \
 		--volume $(shell pwd):/opt/${APP} \
+		--volume ${HOME}/.config:/root/.config \
 		--interactive \
 		--tty \
 		--rm \
 		${APP} \
 		bash
-
-guard-%:
-	@if [ -z "${${*}}" ] ; \
-    then \
-        echo "You must provide the ${*} variable" ; \
-        exit 1 ; \
-    fi
-
--include Makefile.local
